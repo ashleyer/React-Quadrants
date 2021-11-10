@@ -1,0 +1,19 @@
+Few things to keep in mind for this deliverable and/or any situation that may require you to refactor/implement new technology:
+The starter code comes packed with a lot of functionality already built-in. This is great and can not be so great at the same time. A good thing to ask yourself initially is "what is my overall goal and where would be the best place for me to start?" and "How much existing code can I comfortably work with and what needs to be refactored?". This a good mindset to be in when you are working on a team and you are tasked with refactoring components that have already been built by someone else. If you can find a good entry point somewhere in the existing code to build off of, great! But if you also need to start from the beginning/start with a new component and reference, then that is a great approach as well.
+As we've discussed, we went over key concepts of React together that we can reference to guide us along. We also practiced fetching data from an external API. Here is a specific snippet to reference from the starter code for fetching API data and setting in state:
+const apiKey = process.env.REACT_APP_API_KEY;
+const searchTerm = "art";
+const fetchUrl = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&limit=50&api_key=${apiKey}`;
+
+class ArtApi extends Component {
+	state = {
+		apiData: [],
+	};
+
+	componentDidMount() {
+		fetch(fetchUrl)
+			.then((res) => res.json())
+			.then((json) => this.setState({ apiData: json.data }));
+	}
+There is no notion of lifting state required so we are good on that. We will learn this concept next week! With that being said, we should rely on passing down props to components. Hint: That means it would be best to fetch from an API and manage state at the highest level (index.js), then pass it down as props.
+Lastly, take your time! We are only 3 days into exploring React and we've covered a lot! The rest of this afternoon may be used to diagram, leave comments, and hone in on specific functionalities.
