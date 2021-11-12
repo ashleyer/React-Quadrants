@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Section from "./Section";
+import {Planet} from 'react-kawaii';
 
 import "./styles.css";
 
