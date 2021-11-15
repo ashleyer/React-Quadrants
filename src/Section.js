@@ -24,7 +24,7 @@ class Section extends Component {
 	handleOnClick = () => this.getRandomImage(this.props.apiData);
 
 	generateContent = () => {
-		if (!this.state.data && this.props.apiData.length) {
+		if (!this.state.data && this.state.data.length) {
 			this.getRandomImage(this.props.apiData);
 			return <Loader styles={contentStyles} />;
 		} else {
@@ -38,11 +38,16 @@ class Section extends Component {
 
 	render() {
 		return (
-			<section className="section" onClick={this.handleOnClick}>
+			<button className="section" onClick={this.handleOnClick}>
 				{this.generateContent()}
-			</section>
+			</button>
 		);
 	}
 }
-
+// return (
+//     <button onClick={ this.generateContent() } > click  </button>
+//   );
+// 
+	
+	
 export default Section;
